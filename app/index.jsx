@@ -1,15 +1,29 @@
+import React, { useEffect } from 'react';
 import { View, Image } from 'react-native';
+import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 
-export default function SplashScreen() {
+const SplashScreen = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      router.replace('/home'); 
+    }, 5000); 
+
+    return () => clearTimeout(timer);
+  }, [router]);
+
   return (
-    <View className="flex-1" options = {{headerShown: false}}>
+    <View style={{ flex: 1 }}>
       <Image
         source={require('../assets/Splash Screen 01.png')}
-        className="absolute inset-0 w-full h-full"
+        style={{ width: '100%', height: '100%' }}
         resizeMode="cover"
       />
       <StatusBar style="auto" />
     </View>
   );
-}
+};
+
+export default SplashScreen;
