@@ -18,7 +18,7 @@ const SplashScreen = () => {
     <View style={{ flex: 1 }}>
       <Image
         source={require('../assets/Splash Screen 01.png')}
-        style={{ width: '100%', height: '100%' }}
+        className="w-full h-full"
         resizeMode="cover"
       />
       <StatusBar style="auto" />
